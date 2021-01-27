@@ -1,9 +1,9 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleWare from 'redux-thunk'
-import { increment } from './middleWares/increment';
 
+import { increment } from './middlewares/increment';
 import reducer from './reducers';
-import { logger } from './middleWares/logger';
+import { logger } from './middlewares/logger';
 
 
 const preloadedState = {
