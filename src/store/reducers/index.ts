@@ -1,5 +1,5 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
 
 import { mainReducer } from './headerReducer';
 
-export default combineReducers({  main: mainReducer  })
+export default combineReducers({ main: mainReducer });

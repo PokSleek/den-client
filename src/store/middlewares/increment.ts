@@ -1,11 +1,10 @@
-let incrementt = 1;
+let counter = 1;
 
-export const increment = () => (next: (arg0: { type: any; payload: number; }) => void) => (action: { payload: number; type: any; }) => {
-
-  const newAction = {
-    type: action.type,
-    payload: action.payload + incrementt++
-  };
-  console.log('newAction ', newAction);
-  next(newAction)
-}
+export const increment = (store) => (next) => (action) => {
+    const newAction = {
+        type: action.type,
+        payload: action.payload + counter++,
+    };
+    console.log('newAction ', newAction);
+    next(newAction);
+};
