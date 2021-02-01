@@ -2,6 +2,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const CopyWebpackPlugin = require('copy-webpack-plugin');
+const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
 	entry: './src/main.tsx',
@@ -41,8 +42,12 @@ module.exports = {
 				},
 			},
 			{
-				test: /\.(css|scss)$/,
-				use: ['style-loader', 'css-loader', 'sass-loader', MiniCssExtractPlugin.loader,],
+				test: /\.(css|scss|sass)$/,
+				use: [
+					devMode ? "style-loader" : MiniCssExtractPlugin.loader,
+					"css-loader",
+					"sass-loader",
+				],
 			},
 			{
 				test: /\.(png|jp(e*)g|gif|ico)$/,
@@ -62,6 +67,10 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			favicon: './src/public/images/favicon.ico',
 			template: './src/public/index.html',
+		}),
+		new MiniCssExtractPlugin({
+			filename: '[name].css',
+			chunkFilename: '[id].css',
 		}),
 	],
 

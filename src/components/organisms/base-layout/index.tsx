@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import { setHeader } from '../../../store/actions/actionCreators';
 
+import './baseLaoyout.scss';
+
 let counter = 0;
 
 class BaseLayout extends React.Component<any, any> {
