@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 // const CopyWebpackPlugin = require('copy-webpack-plugin');
 const devMode = process.env.NODE_ENV !== 'production';
 
@@ -65,12 +66,15 @@ module.exports = {
 
 	plugins: [
 		new HtmlWebpackPlugin({
-			favicon: './src/public/images/favicon.ico',
-			template: './src/public/index.html',
+			favicon: './public/images/favicon.ico',
+			template: './public/index.html',
 		}),
 		new MiniCssExtractPlugin({
 			filename: '[name].css',
 			chunkFilename: '[id].css',
+		}),
+		new MomentLocalesPlugin({
+			localesToKeep: ['ru'],
 		}),
 	],
 
