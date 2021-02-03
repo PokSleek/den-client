@@ -1,26 +1,78 @@
+@use "src/styles/constants";
+
 .calendar {
-    header {
+    position: relative;
+
+    &__header {
+        width: 200px;
+        height: 46px;
         display: flex;
-        justify-content: center;
-        margin-bottom: 8px;
+        align-items: center;
+        justify-content: space-between;
     }
 
-    header button,
-    header select {
-        margin: 0 4px;
+    &__main {
+        width: 100%;
+        border-radius: 4px;
+
+        &__swipe-month-button {
+            margin-top: 40px;
+            width: 36px;
+            height: 120px;
+            border: 0;
+            background: #E9ECEF;
+            border-radius: 100px;
+            color: rgba(0,0,0,0.43);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+        }
+
+        &__wrapper {
+            width: 572px; // For % working
+            background: #ffffff;
+            box-shadow: 0 1px 8px 0 rgba(0, 44, 92, 0.28);
+            border-radius: 4px;
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+        }
+
+        &__week-day {
+            color: constants.$normal-text-color;
+            font-weight: bold;
+            vertical-align: middle;
+            text-align: center;
+            height: 36px;
+            text-decoration: underline;
+        }
     }
 
     table {
         table-layout: fixed;
         border-collapse: separate;
         border-spacing: 0;
-        margin: auto;
     }
 
-    th {
-        vertical-align: middle;
-        text-align: center;
-        height: 36px;
+    .swap-button {
+        @include constants.default-icon;
+    }
+
+    .selected-date-block {
+        font-size: 15px;
+        font-weight: bold;
+        color: constants.$hover-text-color;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        cursor: pointer;
+        user-select: none;
+
+        div:hover {
+            color: constants.$pressed-text-color;
+        }
     }
 
     .day {
@@ -31,7 +83,7 @@
     }
 
     .day:hover {
-        background-color: #eaeaea;
+        background: #d5dfe9;
         cursor: pointer;
     }
 

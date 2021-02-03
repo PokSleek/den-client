@@ -1,0 +1,39 @@
+$normal-text-color: #000000;
+$hover-text-color: #0070E0;
+$pressed-text-color: #163fbf;
+$disabled-text-color: #858E98;
+
+$placeholder-text-color: #858E98;
+
+@mixin clickable-text {
+  color: $normal-text-color;
+
+  &:hover {
+    color: $hover-text-color;
+  }
+
+  &:focus {
+    color: $pressed-text-color
+  }
+
+  &:disabled {
+    color: $disabled-text-color;
+  }
+}
+
+@mixin default-icon {
+  min-width: 24px;
+  height: 24px;
+  border: 0;
+  background: #E9ECEF;
+  border-radius: 100px;
+  color: rgba(0,0,0,0.43);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  &:focus {
+    color: #000000
+  }
+}

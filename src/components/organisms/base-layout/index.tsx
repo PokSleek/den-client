@@ -6,9 +6,15 @@ import Calendar from '../../molecules/Calendar';
 
 import './baseLaoyout.scss';
 
-class BaseLayout extends React.Component<never, never> {
+class BaseLayout extends React.Component {
     render() {
-        return <Calendar />;
+        return (
+            <div className={'base-wrapper'}>
+                <div className={'base-layout'}>
+                    <Calendar />
+                </div>
+            </div>
+        );
     }
 }
 

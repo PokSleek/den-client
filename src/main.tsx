@@ -3,16 +3,16 @@ import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import moment from 'moment';
 
-import 'normalize.css';
+// import 'normalize.css';
 
 import BaseLayout from './components/organisms/base-layout';
 import store from './store/store';
 
-moment.locale('ru');
+// moment.locale('ru');
 
 ReactDOM.render(
     <Provider store={store}>
-        <BaseLayout header={'React'} />
+        <BaseLayout />
     </Provider>,
     document.getElementById('root'),
 );
